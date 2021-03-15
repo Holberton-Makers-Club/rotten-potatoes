@@ -14,11 +14,13 @@
 </head>
 <body>
   {{#if currentUser}}
-  {{> navbar}}
-  {{/if}}
-  <div class="main">
+    {{> navbar}}
+    <div class="main">
+      {{{body}}}
+    </div>
+  {{else}}
     {{{body}}}
-  </div>
+  {{/if}}
  
 
          

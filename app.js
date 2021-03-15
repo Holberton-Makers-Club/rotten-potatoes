@@ -388,9 +388,10 @@ app.get('/holbies', (req, res) => {
 
 // Categories
 app.get('/:category', function(req, res) {
+  var currentUser = req.user;
   Review.find({ category: req.params.category }).lean()
     .then(reviews => {
-      res.render("categories-index", { reviews });
+      res.render("categories-index", { reviews, currentUser });
     })
     .catch(err => {
       console.log(err);

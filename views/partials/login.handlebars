@@ -1,35 +1,42 @@
-<div class="login">
-<form action="/login" method="post">
-
-<img class="logo" src="/images/holbie-notes-logo.png">
-
-<h1>Holbie Notes💻 </h1>
-<p id="info">Welcome to the Holbie Notes Website for Holberton Students!<br> <a href="/sign-up">Sign Up Instead</a></p>
-
-
-<div class="form-group">
-      <label for="username">Username</label><br>
-      <input class="form-control"
-        id="username"
-        type="text"
-        name="username"
-        placeholder="Username"/>
+<div class="container mt-5" >
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-12 col-md-8">
+      <div class="d-flex flex-row justify-content-start align-items-center mb-5">
+        <img class="logo" src="/images/holbie-notes-logo.png">
+        <h1>Holbie Notes</h1>
+      </div>
+      <h2>Enter Credentials:</h2>
+      <hr />
+      <form action="/login" method="post">
+        <div class="form-group">
+          <label for="username">Username</label><br>
+          <input class="form-control"
+            id="username"
+            type="text"
+            name="username"
+            placeholder="ie. holbie"/>
+          <label for="password">Password</label><br>
+          <input class="form-control"
+            id="password"
+            type="password"
+            name="password"
+            placeholder="************"
+          />
+          <div class="d-flex flex-row justify-content-end">
+            <button class="btn btn-danger" type="submit">Login</button>
+          </div>
+          <hr />
+          <div class="d-flex flex-row justify-content-end">
+            <a class="btn btn-outline-primary ml-auto" href="/sign-up">Sign Up Instead</a>
+          </div>
+          
+        </div>
+      </form>
     </div>
-
-     <div class="form-group">
-      <label for="password">Password</label><br>
-      <input class="form-control"
-        id="password"
-        type="password"
-        name="password"
-        placeholder="Password"/>
-    </div>
-
-
-<div class="form-group">
-
-<button  type="submit">Login</button>
-</div>
+    <div class="col-md-2"></div>
+    
+  </div>
 
 
 </div>

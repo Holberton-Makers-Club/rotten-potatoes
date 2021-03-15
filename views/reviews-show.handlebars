@@ -1,29 +1,37 @@
 <!-- views/reviews-show.handlebars -->
 
 <div class ="container">
-<div class="col-sm-6 col-sm-offset-3">
-<h1>{{review.title}}</h1>
-<h2>{{review.movieTitle}}</h2>
-{{{review.description}}}
-<p>{{review.author.username}}</p>
+  <div class="">
+    <h1 class="mt-4 mb-5">{{review.title}}</h1>
+    
+    <h3>
+      {{{review.description}}}
+    </h3>
+    
+    {{#if postOwner}}
+      <div class="d-flex flex-row justify-content-end">
+        <!-- EDIT BUTTON -->
+        <a class="btn btn-outline-danger mr-2" href="/reviews/{{review._id}}/edit">Edit this post</a>
+        <!-- DELETE BUTTON -->
+        <form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
+          <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+      </div>
+    {{else}}
+      <div class="d-flex flex-row justify-content-end mb-0">
+        <p class="ml-auto">Posted by: {{review.author.username}}</p>
+      </div>
+    {{/if}}
+    <hr class="my-0">
 
-{{#if postOwner}}
-<p><a href="/reviews/{{review._id}}/edit">Edit</a></p>
+    <!-- Show Comments -->
+    {{#each comments}}
+      {{> comment}}
+    {{/each}}
 
-<!-- DELETE BUTTON -->
-<p><form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
-<button type="submit">Delete</button>
-</form></p>
-<hr>
-{{/if}}
-<!-- comment form -->
-{{> comment-form}}
-<hr>
+  </div>
+    <!-- comment form -->
+    
+    {{> comment-form}}
 
-<!-- Show Comments -->
-{{#each comments}}
-{{> comment}}
-{{/each}}
-
-</div>
 </div>
